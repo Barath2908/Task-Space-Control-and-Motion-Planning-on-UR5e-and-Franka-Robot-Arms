@@ -1,0 +1,50 @@
+# UR5e Cartesian Controller Parameters
+# Author: Barath Kumar JK
+
+cartesian_controller:
+  ros__parameters:
+    # Robot configuration
+    robot: "ur5e"
+    num_joints: 6
+    
+    # Control loop
+    control_rate: 500.0  # Hz
+    
+    # Joint velocity limits
+    max_joint_velocity: 1.5  # rad/s (hard limit for rate spikes)
+    
+    # Jacobian control parameters
+    damping_factor: 0.05
+    damping_threshold: 0.01  # Manipulability threshold for adaptive damping
+    adaptive_damping: true
+    
+    # Position control gains
+    position_gain: 10.0
+    orientation_gain: 5.0
+    
+    # Convergence tolerances
+    position_tolerance: 0.001  # m (1 mm)
+    orientation_tolerance: 0.01  # rad (~0.57 deg)
+    
+    # Joint names (for trajectory interface)
+    joint_names:
+      - "shoulder_pan_joint"
+      - "shoulder_lift_joint"
+      - "elbow_joint"
+      - "wrist_1_joint"
+      - "wrist_2_joint"
+      - "wrist_3_joint"
+    
+    # Joint limits (rad)
+    joint_lower_limits: [-6.2832, -6.2832, -3.1416, -6.2832, -6.2832, -6.2832]
+    joint_upper_limits: [6.2832, 6.2832, 3.1416, 6.2832, 6.2832, 6.2832]
+
+# IK Solver parameters
+ik_solver:
+  ros__parameters:
+    max_iterations: 50
+    step_size: 0.5
+    position_tolerance: 0.001  # m
+    orientation_tolerance: 0.01  # rad
+    use_line_search: true
+    num_restarts: 5

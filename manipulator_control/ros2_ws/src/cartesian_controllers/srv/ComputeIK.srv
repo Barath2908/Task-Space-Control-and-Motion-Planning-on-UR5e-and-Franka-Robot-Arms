@@ -1,0 +1,15 @@
+# Compute inverse kinematics for target pose
+
+# Request
+geometry_msgs/Pose target_pose
+float64[] seed_configuration  # Optional seed for IK
+bool solve_orientation        # Whether to solve for orientation
+
+---
+# Response
+bool success
+float64[] joint_positions
+int32 iterations
+float64 position_error
+float64 orientation_error
+string message

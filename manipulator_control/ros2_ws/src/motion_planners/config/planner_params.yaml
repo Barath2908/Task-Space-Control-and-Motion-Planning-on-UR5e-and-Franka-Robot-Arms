@@ -1,0 +1,51 @@
+# Motion Planner Parameters
+# Author: Barath Kumar JK
+
+planner:
+  ros__parameters:
+    # Algorithm selection: rrt, rrt_star, birrt_star
+    algorithm: "birrt_star"
+    
+    # Robot configuration
+    num_joints: 6
+    
+    # Common parameters
+    max_iterations: 10000
+    timeout: 5.0  # seconds
+    step_size: 0.1  # rad
+    goal_threshold: 0.05  # rad
+    goal_bias: 0.1  # probability of sampling goal
+    
+    # Path interpolation
+    interpolate_path: true
+    interpolation_steps: 10
+    
+    # RRT* specific parameters
+    rewire_radius: 0.5  # rad
+    adaptive_radius: true
+    gamma_rrt_star: 1.5
+    max_rewire_neighbors: 30
+    continue_after_solution: false
+    improvement_threshold: 0.01
+    
+    # Bi-RRT* specific parameters
+    connection_threshold: 0.1  # rad
+    connection_attempts: 5
+    alternate_trees: true
+
+# Collision checking parameters
+collision_checker:
+  ros__parameters:
+    # Resolution for edge checking
+    edge_resolution: 0.05  # rad
+    
+    # Robot collision geometry (simplified capsules)
+    robot_radius: 0.06  # m (conservative estimate)
+    
+    # Self-collision pairs to skip (adjacent links)
+    skip_adjacent_links: true
+
+# Performance targets
+# - RRT: 0.3-0.5s
+# - RRT*: 0.5-0.8s
+# - Bi-RRT*: 0.3-0.4s (fastest)

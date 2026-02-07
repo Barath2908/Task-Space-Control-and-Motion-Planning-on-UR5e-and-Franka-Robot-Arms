@@ -1,0 +1,9 @@
+# Set nullspace posture target for 7-DOF robots
+
+# Request: desired joint positions for nullspace control
+float64[] joint_positions
+
+---
+# Response: success status
+bool success
+string message

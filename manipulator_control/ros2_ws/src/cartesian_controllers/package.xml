@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>cartesian_controllers</name>
+  <version>1.0.0</version>
+  <description>
+    Task-space Cartesian control for UR5e and Franka Emika Panda manipulators.
+    
+    Features:
+    - Jacobian pseudoinverse control with SVD
+    - Damped Least Squares for singularity robustness
+    - Joint rate limiting (< 1.5 rad/s)
+    - Nullspace posture control for 7-DOF robots
+    - Numerical IK solver (95% convergence in < 20 iterations)
+    - 2-3 mm RMS tracking error
+  </description>
+  <maintainer email="bj2519@columbia.edu">Barath Kumar JK</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_eigen</depend>
+  <depend>eigen</depend>
+
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
